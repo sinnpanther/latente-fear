@@ -17,11 +17,10 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 [file_customization]
 
 folder_colors={
-"res://data/themes/": "yellow",
-"res://scenes/": "green",
-"res://scripts/core/": "orange",
-"res://scripts/layouts/": "red",
-"res://scripts/themes/": "yellow"
+"res://scenes/level/": "orange",
+"res://scenes/player/": "yellow",
+"res://scenes/rooms/": "red",
+"res://scripts/rooms/": "red"
 }
 
 [input]

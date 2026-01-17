@@ -7,7 +7,7 @@ class_name SeedManager
 
 # Alphabet Base32 Crockford (lisible humain)
 # Pas de I, L, O, U (ambiguïtés)
-const CROCKFORD := "0123456789ABCDEFGHJKMNPQRSTVWXYZ"
+const CROCKFORD := "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const SEED_LENGTH := 8
 
 # --------------------------------------------------
