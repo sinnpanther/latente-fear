@@ -6,7 +6,7 @@ var current_rng: RandomNumberGenerator
 
 func start_level(level_index: int) -> void:
     # 1️⃣ Choisir le thème (plus tard ce sera aléatoire)
-    current_theme = preload("res://data/themes/LabTheme.tres")
+    current_theme = preload("res://resources/themes/LabTheme.tres")
 
 
     # 2️⃣ Créer le RNG du niveau
