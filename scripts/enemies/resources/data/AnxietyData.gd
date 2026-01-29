@@ -1,0 +1,2 @@
+extends EnemyData
+class_name AnxietyData

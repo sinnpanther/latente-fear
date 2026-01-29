@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgd771bihgbmh"]
+[gd_scene format=3 uid="uid://bgd771bihgbmh"]
 
 [ext_resource type="PackedScene" uid="uid://ccmkm1kqcchfc" path="res://scenes/player/Player.tscn" id="1_wen4y"]
+[ext_resource type="PackedScene" uid="uid://dcjegelycm4fx" path="res://scenes/enemies/Anxiety.tscn" id="2_w8un3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_syogv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -10,10 +11,11 @@ ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 sky_material = SubResource("ProceduralSkyMaterial_syogv")
 
 [sub_resource type="Environment" id="Environment_w8un3"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.019607844, 0.019607844, 0.019607844, 1)
 sky = SubResource("Sky_wen4y")
 tonemap_mode = 2
-glow_enabled = true
+fog_light_color = Color(0.538109, 0.64705884, 0.639812, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wen4y"]
 albedo_color = Color(0.22851563, 0, 0, 1)
@@ -25,88 +27,48 @@ size = Vector2(40, 40)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wen4y"]
 size = Vector3(40, 0.2, 40)
 
-[node name="Test" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8un3"]
+albedo_color = Color(0, 0, 0.28515625, 1)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[sub_resource type="BoxMesh" id="BoxMesh_wen4y"]
+material = SubResource("StandardMaterial3D_w8un3")
+size = Vector3(10, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0d6la"]
+size = Vector3(10, 2, 1)
+
+[node name="Test" type="Node3D" unique_id=1773975871]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1552691866]
 environment = SubResource("Environment_w8un3")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=524389023]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 6.9490933, 0)
+light_energy = 0.1
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("1_wen4y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24366212, 0)
+[node name="Player" parent="." unique_id=982898369 instance=ExtResource("1_wen4y")]
 
-[node name="Skeleton3D" parent="Player/MeshRoot/player_model/RootNode/CharacterArmature" index="0"]
-bones/5/rotation = Quaternion(0.0026628363, 8.008876e-08, 4.530774e-06, 0.99999654)
-bones/7/rotation = Quaternion(-0.022592025, -0.00027549383, 0.00011088284, 0.9997448)
-bones/9/rotation = Quaternion(0.67414194, -0.40428212, -0.38761967, -0.48149732)
-bones/10/rotation = Quaternion(-0.12219627, -0.02940124, -0.1843396, 0.9747936)
-bones/13/rotation = Quaternion(-0.040752962, -0.032127023, 0.067052044, 0.99639904)
-bones/14/rotation = Quaternion(-0.078957774, 0.011659366, 0.02505753, 0.9964949)
-bones/17/rotation = Quaternion(-0.08981715, 0.025397837, -0.006121642, 0.9956156)
-bones/18/rotation = Quaternion(-0.120158345, 0.0061791646, -0.018862175, 0.9925564)
-bones/21/rotation = Quaternion(-0.081936605, 0.16046095, -0.036559865, 0.9829558)
-bones/22/rotation = Quaternion(-0.11785519, 0.04009025, -0.04125636, 0.9913631)
-bones/29/rotation = Quaternion(0.031271465, -0.1250635, 0.08499557, 0.98800665)
-bones/30/rotation = Quaternion(-0.10005061, -0.055116393, 0.1286069, 0.98509514)
-bones/32/rotation = Quaternion(-0.625777, -0.30790904, -0.43891975, 0.5665199)
-bones/33/rotation = Quaternion(-0.20830283, -0.193417, 0.32387197, 0.9023896)
-bones/52/rotation = Quaternion(0.04011525, 0.12270367, -0.08519674, 0.98796564)
-bones/53/rotation = Quaternion(-0.095200524, 0.05573841, -0.12278414, 0.98628306)
-bones/54/rotation = Quaternion(-0.5357519, 0.020401187, 0.83575445, -0.118610114)
-bones/55/rotation = Quaternion(0.18519896, 0.6824229, -0.18519884, 0.6824235)
-bones/56/rotation = Quaternion(0.5551927, 0.124664225, 0.8050706, 0.16757527)
-bones/57/rotation = Quaternion(0.16584611, -0.68738246, 0.165846, 0.68738306)
+[node name="Floor" type="StaticBody3D" parent="." unique_id=38909219]
 
-[node name="Head" parent="Player/MeshRoot/player_model/RootNode/CharacterArmature/Skeleton3D" index="0"]
-transform = Transform3D(0.9999845, -0.00239559, -0.005002306, -0.00516676, -0.074399486, -0.99721473, 0.002016742, 0.9972256, -0.074410774, 3.9037448e-05, -0.00093450415, 0.01547106)
-
-[node name="Index4_L" parent="Player/MeshRoot/player_model/RootNode/CharacterArmature/Skeleton3D" index="1"]
-transform = Transform3D(-0.06406734, -0.18400738, 0.98083425, -0.99779135, 0.029047351, -0.0597255, -0.017500345, -0.9824952, -0.18546212, 0.0026128483, -0.0005537824, 0.0079812175)
-
-[node name="Middle4_L" parent="Player/MeshRoot/player_model/RootNode/CharacterArmature/Skeleton3D" index="2"]
-transform = Transform3D(-0.06814409, -0.2716334, 0.9599847, -0.99720556, -0.010954194, -0.07388567, 0.030586062, -0.9623383, -0.27012825, 0.0026486558, -0.00025843972, 0.007806382)
-
-[node name="Ring4_L" parent="Player/MeshRoot/player_model/RootNode/CharacterArmature/Skeleton3D" index="3"]
-transform = Transform3D(-0.34032, -0.4070206, 0.8476528, -0.9382299, 0.2068968, -0.27733886, -0.06249377, -0.8896782, -0.45229036, 0.0025915415, 0.00012517298, 0.008000474)
-
-[node name="Pinky4_L" parent="Player/MeshRoot/player_model/RootNode/CharacterArmature/Skeleton3D" index="4"]
-transform = Transform3D(-0.0422055, -0.5170013, 0.8549429, -0.9926013, 0.11919859, 0.023080766, -0.113840386, -0.8476443, -0.5182076, 0.0025594353, 0.00028332506, 0.008243215)
-
-[node name="Thumb3_L" parent="Player/MeshRoot/player_model/RootNode/CharacterArmature/Skeleton3D" index="5"]
-transform = Transform3D(-0.13308406, -0.08181889, 0.9877213, -0.9584973, -0.2428996, -0.14926732, 0.25213045, -0.96659434, -0.04609713, 0.0024887295, -0.0010039047, 0.008901206)
-
-[node name="Index4_R" parent="Player/MeshRoot/player_model/RootNode/CharacterArmature/Skeleton3D" index="6"]
-transform = Transform3D(-0.35152614, 0.3339584, -0.87458587, 0.88513994, -0.18568243, -0.4266705, -0.3048858, -0.92411685, -0.23032756, -0.0018805766, -0.0022330342, 0.008304279)
-
-[node name="Middle4_R" parent="Player/MeshRoot/player_model/RootNode/CharacterArmature/Skeleton3D" index="7"]
-transform = Transform3D(-0.35646448, 0.36800653, -0.8587804, 0.9115779, -0.06452516, -0.40603036, -0.20483485, -0.92758125, -0.31246558, -0.002012286, -0.0019182661, 0.008018082)
-
-[node name="Ring4_R" parent="Player/MeshRoot/player_model/RootNode/CharacterArmature/Skeleton3D" index="8"]
-transform = Transform3D(-0.6026743, 0.4425847, -0.6640046, 0.7577108, 0.056374975, -0.65014976, -0.25031313, -0.89495254, -0.36932683, -0.0020788563, -0.0016146335, 0.008105468)
-
-[node name="Pinky4_R" parent="Player/MeshRoot/player_model/RootNode/CharacterArmature/Skeleton3D" index="9"]
-transform = Transform3D(-0.34227523, 0.5661795, -0.7498586, 0.91617215, 0.024006523, -0.40006357, -0.20850645, -0.82393175, -0.52693474, -0.002126058, -0.0013910156, 0.008286328)
-
-[node name="Thumb3_R" parent="Player/MeshRoot/player_model/RootNode/CharacterArmature/Skeleton3D" index="10"]
-transform = Transform3D(-0.31814373, 0.3221309, -0.8916365, 0.6258189, -0.635111, -0.45275092, -0.7121332, -0.7020432, 0.00046110153, -0.001725044, -0.0024395387, 0.009517732)
-
-[node name="LowerLeg_L" parent="Player/MeshRoot/player_model/RootNode/CharacterArmature/Skeleton3D" index="11"]
-transform = Transform3D(0.6058253, -0.18594667, -0.77355003, 0.79011124, 0.254274, 0.5577054, 0.0929879, -0.9490877, 0.30097216, 0.0021553154, -0.00015107679, 0.0050726603)
-
-[node name="LowerLeg_R" parent="Player/MeshRoot/player_model/RootNode/CharacterArmature/Skeleton3D" index="12"]
-transform = Transform3D(0.9932258, 0.008451061, -0.11566418, 0.11503974, 0.0542234, 0.99187934, 0.014653769, -0.9984927, 0.052885037, -0.0007265372, -0.0027337996, 0.0053249835)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-
-[node name="Floor" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=994905428]
 mesh = SubResource("PlaneMesh_w8un3")
 skeleton = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=815703624]
 shape = SubResource("BoxShape3D_wen4y")
 
+[node name="Wall" type="StaticBody3D" parent="." unique_id=1522469630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=899517981]
+mesh = SubResource("BoxMesh_wen4y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall" unique_id=1857054288]
+shape = SubResource("BoxShape3D_0d6la")
+
+[node name="Anxiety" parent="." unique_id=916441161 node_paths=PackedStringArray("player") instance=ExtResource("2_w8un3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9136945, 12.382118)
+player = NodePath("../Player")
+
 [editable path="Player"]
-[editable path="Player/MeshRoot/player_model"]

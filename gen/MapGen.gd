@@ -9,7 +9,7 @@ signal generation_finished
 @export var start := false :
     set(value):
         if Engine.is_editor_hint():
-            generate()
+            generate_internal()
 
 @export_range(0, 1) var survival_chance := 0.2
 @export var border_size := 20 :

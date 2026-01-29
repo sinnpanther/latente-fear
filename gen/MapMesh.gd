@@ -69,4 +69,4 @@ func create_map() -> void:
                 else:
                     var key := str(cell_index) + str(cell_n_index)
                     call("handle_" + key, map_cell, dir)
-        if t % 10 == 9: await get_tree().create_timer(0.1).timeout
+        if t % 20 == 19: await get_tree().create_timer(0.01).timeout

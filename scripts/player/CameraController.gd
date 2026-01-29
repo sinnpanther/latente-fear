@@ -20,6 +20,7 @@ var pitch_min := -55.0
 
 var tween : Tween
 
+
 func _input(event) -> void:
     if event.is_action_pressed("toggle_mouse_capture"):
         if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:

@@ -25,4 +25,6 @@ func spawn_map():
 func spawn_player():
     var player := player_scene.instantiate()
     add_child(player)
+
+    player.global_transform = Transform3D.IDENTITY
     player.global_position = mapgen.get_spawn_position()
