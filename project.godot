@@ -20,19 +20,14 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
-PhysicsHelper="*res://autoload/PhysicsHelper.gd"
+PhysicsHelper="*res://autoload/physics_helper.gd"
 
 [file_customization]
 
 folder_colors={
-"res://resources/enemies/": "red",
-"res://resources/player/": "yellow",
-"res://resources/themes/": "green",
-"res://scenes/enemies/": "red",
-"res://scenes/player/": "yellow",
-"res://scripts/enemies/": "red",
-"res://scripts/player/": "yellow",
-"res://scripts/themes/": "green"
+"res://entities/enemies/": "red",
+"res://entities/player/": "yellow",
+"res://modes/roguelike/": "purple"
 }
 
 [importer_defaults]

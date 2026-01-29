@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AnxietyData" format=3 uid="uid://7swur1px2wvm"]
+
+[ext_resource type="Script" uid="uid://cke7lxtx8dgam" path="res://entities/enemies/resources/data/anxiety_data.gd" id="1_jnytu"]
+
+[resource]
+script = ExtResource("1_jnytu")
+metadata/_custom_type_script = "uid://cke7lxtx8dgam"

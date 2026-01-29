@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://xl60nhlbp1r7"]
+
+[ext_resource type="Script" uid="uid://bl1sm05ikd5h" path="res://modes/roguelike/scripts/roguelike_run.gd" id="1_elqb8"]
+[ext_resource type="PackedScene" uid="uid://bclehu14tcaap" path="res://core/generation/map_gen.tscn" id="2_rarhs"]
+[ext_resource type="PackedScene" uid="uid://ccmkm1kqcchfc" path="res://entities/player/scenes/player.tscn" id="2_rvslj"]
+[ext_resource type="Resource" uid="uid://dw0hkk3xfv53v" path="res://core/level/themes/lab_theme.tres" id="4_vcsgt"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_elqb8")
+map_gen_scene = ExtResource("2_rarhs")
+player_scene = ExtResource("2_rvslj")
+lab_theme = ExtResource("4_vcsgt")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 10, 10)
+light_energy = 0.3
+shadow_enabled = true
